@@ -3,7 +3,11 @@ const app = express();
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const Datastore = require("@google-cloud/datastore");
-const datastore = new Datastore();
+const bodyParser = require("body-parser");
+
+const datastore = new Datastore({
+  projectId: "calad-unihack"
+});
 
 const APPLICATION_PORT = process.env.port || 8080;
 const GOOGLE_CLIENT_ID =
@@ -22,6 +26,28 @@ passport.use(
     }
   )
 );
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+app.use(require("serve-static")(__dirname + "/../../public"));
+app.use(require("cookie-parser")());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(
+  require("express-session")({
+    secret: "keyboard cat",
+    resave: true,
+    saveUninitialized: true
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.get("/test", (req, res) => {
   let data = {
