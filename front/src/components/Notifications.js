@@ -11,7 +11,7 @@ class Notifications extends React.Component {
     const { open, message, dismissNotification } = this.props
     return (
       <Snackbar
-        autoHideDuration={3000}
+        autoHideDuration={1000}
         open={open}
         onClose={dismissNotification}
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}

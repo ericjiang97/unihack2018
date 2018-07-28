@@ -24,6 +24,7 @@ const config = {
       process.env.GOOGLE_APPLICATION_CREDENTIALS || "./config/datastore.json"
   })
 };
+
 app.use(morgan(config.MORGAN_LOGGER_MODE));
 app.use(require("cookie-parser")());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -97,7 +98,7 @@ function userLogged(req, res, next) {
   res.redirect("/auth/google");
 }
 
-app.get("/calendar", userLogged, (req, res) => {
+app.get("/api/calendar", userLogged, (req, res) => {
   if (!req.session.access_token) return res.redirect("/auth/google");
   var accessToken = req.session.access_token;
   var calendarId = "primary";
@@ -129,10 +130,6 @@ app.get("/calendar", userLogged, (req, res) => {
       return res.send(data);
     }
   );
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello!");
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

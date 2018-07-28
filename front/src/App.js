@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-
+import { connect } from 'react-redux'
 import * as Pages from './pages'
 import HeaderBar from './components/HeaderBar'
 import Notifications from './components/Notifications'
-
+import EventsModal from './components/EventModal'
+import { getUser } from './ducks/account/actions'
 class App extends Component {
+  componentDidMount = () => {
+    this.props.getUser()
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -27,4 +32,11 @@ class App extends Component {
   }
 }
 
-export default App
+const mapDispatchToProps = {
+  getUser,
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App)

@@ -15,10 +15,10 @@ class EventItem extends React.Component {
   handleDecrement = () => {}
 
   render = () => {
-    const { title } = this.props
+    const { summary } = this.props
     return (
       <ListItem>
-        <ListItemText>{title}</ListItemText>
+        <ListItemText>{summary}</ListItemText>
         <IconButton onClick={this.handleIncrement}>
           <AddIcon />
         </IconButton>

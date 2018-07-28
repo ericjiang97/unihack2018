@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import EventList from '../components/EventList'
 import { createNotification } from '../ducks/notifications'
 import { loadEvents } from '../ducks/events'
+import EventsModal from '../components/EventModal'
 
 class CalendarPage extends Component {
   componentDidMount = () => {
@@ -17,6 +18,8 @@ class CalendarPage extends Component {
         <header className="App-header">
           <h1 className="App-title">Calendar</h1>
         </header>
+
+        <EventsModal />
         <p className="App-intro">Calendar Page</p>
         <EventList />
       </div>

@@ -1,4 +1,4 @@
-import { getEvents } from '../../utils/api'
+import CalendarService from '../../services/CalendarService'
 
 import * as types from './types'
 
@@ -18,7 +18,24 @@ const setFulfilled = payload => ({
 
 export const loadEvents = () => dispatch => {
   dispatch(setFetching())
-  getEvents()
-    .then(payload => dispatch(setFulfilled(payload)))
-    .catch(error => dispatch(setErrored(error)))
+
+  CalendarService.getEvents()
+    .then(resp => {
+      const events = resp.items
+        .filter(event => event.status !== 'cancelled')
+        .map((event, key) => {
+          return {
+            id: key,
+            title: event.summary,
+            allDay: false,
+            start: new Date(event.start.dateTime),
+            end: new Date(event.end.dateTime),
+            description: event.description,
+          }
+        })
+      dispatch(setFulfilled(events))
+    })
+    .catch(err => {
+      dispatch(setErrored(err))
+    })
 }
