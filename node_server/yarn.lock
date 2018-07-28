@@ -22,6 +22,10 @@
     stream-events "^1.0.4"
     through2 "^2.0.3"
 
+"@google-cloud/connect-datastore@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@google-cloud/connect-datastore/-/connect-datastore-1.0.0.tgz#92046b2e4b684cc30eca650031377afa0fdab7af"
+
 "@google-cloud/datastore@^1.4.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@google-cloud/datastore/-/datastore-1.4.1.tgz#6f8d0e9646eb442eb557a09aa1474114062dfbc2"

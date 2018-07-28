@@ -3,10 +3,10 @@ const app = express();
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const Datastore = require("@google-cloud/datastore");
-const bodyParser = require("body-parser");
 const {google} = require('googleapis');
-
-
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const DatastoreStore = require("@google-cloud/connect-datastore")(session);
 const datastore = new Datastore({
   projectId: "calad-unihack"
 });
@@ -41,41 +41,46 @@ app.use(require("serve-static")(__dirname + "/../../public"));
 app.use(require("cookie-parser")());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(
-  require("express-session")({
-    secret: "keyboard cat",
+  session({
+    store: new DatastoreStore({
+      dataset: Datastore({
+        prefix: "express-sessions",
+
+        // For convenience, @google-cloud/datastore automatically looks for the
+        // GCLOUD_PROJECT environment variable. Or you can explicitly pass in a
+        // project ID here:
+        projectId: "calad-unihack" || process.env.GCLOUD_PROJECT,
+
+        // For convenience, @google-cloud/datastore automatically looks for the
+        // GOOGLE_APPLICATION_CREDENTIALS environment variable. Or you can
+        // explicitly pass in that path to your key file here:
+        keyFilename:
+          "datastore.json" || process.env.GOOGLE_APPLICATION_CREDENTIALS
+      })
+    }),
+    secret: "my-secret",
     resave: true,
     saveUninitialized: true
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.get("/test", (req, res) => {
-  let data = {
-    name: "testing"
-  };
-  const objKey = datastore.key("Test");
-  const obj = {
-    key: objKey,
-    data: data
-  };
-  datastore.upsert(obj).then(() => {
-    console.log("Worked!");
-  });
-
-  res.status(200).send("Test");
+app.get("/api/profile", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.send(req.user);
+  } else {
+    res.status(403).send({ error: "Unauthenticated" });
+  }
 });
 
 app.get("/", (req, res) => res.send("Hello from Google App Engine!"));
 
-app.get("/teapot", (req, res) => {
-  res.status(418).send("Hello I'm a teapot running on Node Standard GAE");
-});
-
 app.get(
   "/auth/google",
-  passport.authenticate("google", { scope: ["profile"] })
+  passport.authenticate("google", {
+    scope: ["profile", "https://www.googleapis.com/auth/calendar.readonly"]
+  })
 );
 
 app.get(
@@ -86,6 +91,10 @@ app.get(
     res.redirect("/");
   }
 );
+
+app.get("/user", (req, res) => {
+    res.send(req.user);
+});
 
 app.put("/setPriority", (req, res) => {
     let body = req.body;
@@ -111,28 +120,41 @@ app.put("/setPriority", (req, res) => {
     res.send(data);
 });
 
-function listEvents(auth) {
-    const calendar = google.calendar({version: 'v3', auth});
+function userLogged(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/auth/google');
+}
+
+app.get("/calendar", userLogged, (req, res) => {
+
+    let oauth2Client = new OAuth2(
+        GOOGLE_CLIENT_ID,
+        GOOGLE_CLIENT_SECRET,
+        "https://calad-unihack.appspot.com/auth/google/callback"
+    );
+
+    oauth2Client.credentials = {
+        access_token: req.user.access_token,
+        refresh_token: req.user.refresh_token
+    };
+
+    let calendar = google.calendar('v3');
     calendar.events.list({
+        auth: oauth2Client,
         calendarId: 'primary',
         timeMin: (new Date()).toISOString(),
         maxResults: 10,
         singleEvents: true,
-        orderBy: 'startTime',
-    }, (err, res) => {
-        if (err) return console.log('The API returned an error: ' + err);
-        const events = res.data.items;
-        if (events.length) {
-            console.log('Upcoming 10 events:');
-            events.map((event, i) => {
-                const start = event.start.dateTime || event.start.date;
-                console.log(`${start} - ${event.summary}`);
-            });
-        } else {
-            console.log('No upcoming events found.');
-        }
+        orderBy: 'startTime'
+    }, function(err, response) {
+        // process result
     });
-}
+
+    let auth = req.auth;
+    console.log(auth);
+    res.send(listEvents(auth));
+});
 
 app.listen(APPLICATION_PORT, () =>
   console.log(`Example app listening on port ${APPLICATION_PORT}!`)

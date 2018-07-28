@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lorderikir/unihack2018#readme",
   "dependencies": {
+    "@google-cloud/connect-datastore": "^1.0.0",
     "@google-cloud/datastore": "^1.4.1",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
