@@ -16,6 +16,15 @@ const setFulfilled = payload => ({
   payload,
 })
 
+const setUpdated = payload => ({
+  type: types.UPDATE_TYPES,
+  payload,
+})
+
+export const updateEvent = event => {
+  return dispatch(setUpdated(event))
+}
+
 export const loadEvents = () => dispatch => {
   dispatch(setFetching())
 
@@ -35,6 +44,7 @@ export const loadEvents = () => dispatch => {
             creator: event.creator,
             link: event.htmlLink,
             location: event.location,
+            priority: 1,
           }
         })
       dispatch(setFulfilled(events))

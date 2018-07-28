@@ -27,6 +27,17 @@ const reducer = (state = INITIAL_STATE, action) => {
         isFetching: false,
         error: action.error,
       }
+    case types.UPDATE_TYPES:
+      return {
+        state: Object.assign(
+          {},
+          ...state.splice(0, action.payload.id),
+          action.payload,
+          ...state.splice(action.payload.id + 1)
+        ),
+        isFetching: false,
+        error: null,
+      }
     default:
       return state
   }
