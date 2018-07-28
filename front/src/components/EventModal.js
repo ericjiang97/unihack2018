@@ -17,14 +17,14 @@ class EventsModal extends React.Component {
           </DialogContent>
           <DialogActions>
             <Button onClick={() => this.props.closeModal()} color="primary">
-              Disagree
+              Cancel
             </Button>
             <Button
               onClick={() => this.props.closeModal()}
               color="primary"
               autoFocus
             >
-              Agree
+              Ok
             </Button>
           </DialogActions>
         </Dialog>
