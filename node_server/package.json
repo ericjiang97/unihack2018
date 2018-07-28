@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/lorderikir/unihack2018#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "@google-cloud/datastore": "^1.4.1",
+    "express": "^4.16.3",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
   }
 }

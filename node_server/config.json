@@ -1,0 +1,4 @@
+{
+  "GCLOUD_PROJECT": "calad-unihack",
+  "DATA_BACKEND": "datastore"
+}
