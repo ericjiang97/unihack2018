@@ -1,0 +1,24 @@
+description = "Monash University spring boot saml2 sp core library for google appengine"
+
+version = "0.0.1-SNAPSHOT"
+
+apply plugin: "war"
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
+		exclude module: "jul-to-slf4j"
+		exclude module: "spring-boot-starter-tomcat"
+	}
+    compile("org.springframework.boot:spring-boot-starter-security:${springBootVersion}")
+	compile("org.springframework.security.extensions:spring-security-saml2-core:1.0.3.RELEASE") {
+		exclude module: "spring-security-core"
+		exclude module: "spring-security-web"
+		exclude module: "spring-security-config"
+	}
+
+	compile("org.springframework.session:spring-session-core:+")
+	compile("com.google.cloud:google-cloud-datastore:+")
+
+	providedCompile("javax.servlet:javax.servlet-api:3.1.0")
+	providedCompile("javax.servlet:jsp-api:2.0")
+}

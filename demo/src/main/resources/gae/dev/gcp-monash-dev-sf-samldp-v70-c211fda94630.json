@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "monash-spring-saml-sp-demo-dev",
+  "private_key_id": "c211fda94630909368e5e0aa80a6ff4531cbbaff",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC8sOCmWVlIpweS\nI9ccyB0R31pAab35c5b8ZAF5XaYqJca6QR+ZVpq8po3OIYUrHOh13eiixmbrN1ZO\nhmsg8NcmEh539RfGgLUz4yrAq83koHieaSr4kgP1E6w1j67AkyR0/ry8jXoBAecN\n61deJrSXWIhZwp2kEMa9sR55KttvaofP+SLL7YjB+iRGDWzf3CQCiCUQJ5NFqdOh\n+TxOpEqh1WFXlrxZQoIFjxlBIZx4IlQlQFdfIgEdlpq8HslBKotbM4Gun7UCls/Y\nvH3Yvvg+c/gTgJJJRhEaChKCjvNIZ0O7Q1xIOKeofOphdZmltug1UilEyYk30Yyn\nKa21aBXXAgMBAAECggEAUYR0uUkWen22lpsnPsbxUBxXKEbGjPM0AnvN6znbJJBH\nZ4Xk+eDhXqjx0GDI4FRP1UP2UgQ2yF2Syr/lnkiOGmNviFF5YQePwQfeG3jdrWzq\nTz2OE+85CHLkTgtx6r5m3KiEr0zLrY293VST3RgJouzbkzOx2QRqZ98SFDTAskPs\n0V9/JYLV9O7J81iEWn30ItLRR1fMCUjpqZWph0wYYnkTzmUmUCbi5yPCrPvMBHon\nV/kgHOLEV2LiNdJY+7QM6TqqSR0Q4E7tAW1BKkRYOxTUaRGL9d+pZ/8kLAlDYLvd\nR49cTKRdnHfVPVYHtSDFvzVR6kt/3+WHxFNJRz58+QKBgQDgT8sqzkP9M0x2xI+z\nz60XbIs77Z0A/WMMF3VnDe/iQV3B4N+MA8cyEXv/teKa0/X65dcEPLLInUVTte+h\nRmCvGIEN2IVwntL7NSArJoD0BjVBqFWFsmvfyBiTGdeS9pZXwn6tClE6pHl4viO0\nJ1qd+Ytj6jshBNIHxsatwEwcwwKBgQDXWNzwyyVgjoSaHCfWdT2zQU2STiPcxI5m\nX6LKgvBuEWkpni7w2UzPV8W4zJY5M1krnNhP1YtSDUuA3fq5gbWuwC7KWaFXqdTf\nHYcWa0TIxnHNoTq35B4l7jdxgp35YQENEeO+jK3WIL6FYjnFyFqnkB4auH8kmWkl\n8GiE1vmhXQKBgEFLWOOT+TyKIzbrTr1TtZn88aa3Kx2vpJZPedBOwUZGKsmV8Nyr\n+N79MfAkfNr+2jp3jxhfptc42IZejmuOtfQiGObz4RwAT3/qXfvRkHX4HKaJHqP1\nZOtWLrkbK6JO/0J6ji9GspB0chuQlYoKbplPm6Cw/RdGdPDojsrjEATLAoGATHCH\npJWHg/myyf1air59E0cH4PoJstC2d1JVN6s46ukVOiejI+0OXb8bORit7knyyg9X\nnScA2DRN68VfvT90nT4snbkpEzP+kuApVmTnOpluRf6IGERKC06+sXUa3C15sQj7\nnWTUQ+DFoBUYysLuovH+LZ/1yakG8OegQh8I5yUCgYEA0FE1nLm+3OVEKxmqgn/G\nvLxSpNPBQVrZts+UI4/3TJePQKAXT6M+DPnW/CUMYW116GVeKb+cOPzQxRAgHVxd\n848EA1v6JchGF/5zqoRGT/SZI3ocrC4gLrkh8ANsWzVf9midWdEzXeoIQhezErvT\ngai6gvZZEoScRSnxSjLiXDM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "monash-spring-saml-sp-demo-dev@appspot.gserviceaccount.com",
+  "client_id": "104532857755406142693",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/monash-spring-saml-sp-demo-dev%40appspot.gserviceaccount.com"
+}

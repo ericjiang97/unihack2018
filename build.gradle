@@ -1,0 +1,48 @@
+allprojects {
+
+    group = "edu.monash.sso.sp"
+
+    // Setup project environment
+    if (project.hasProperty('uat')) {
+        ext.environment = 'uat'
+    } else if (project.hasProperty('prod')) {
+        ext.environment = 'prod'
+    } else if (project.hasProperty('dev')) {
+        ext.environment = 'dev'
+    } else {
+        ext.environment = 'local'
+    }
+
+    ext.springBootVersion = "1.5.10.RELEASE"
+
+    ext.gaeProjectID = "${project.name}-${ext.environment}"
+
+    // Gradle wrapper
+    task wrapper(type: Wrapper) {
+        gradleVersion = '4.6'
+    }
+
+}
+
+subprojects {
+
+    buildscript {
+        repositories {
+            jcenter()      // Bintray"s repository - a fast Maven Central mirror & more
+            mavenCentral()
+            maven { url "https://repo.spring.io/plugins-release" }
+        }
+    }
+
+    repositories {
+        jcenter()      // Bintray"s repository - a fast Maven Central mirror & more
+        mavenCentral()
+        maven { url "https://repo.spring.io/plugins-release" }
+    }
+
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+}
+
+println('Project id: ' + ext.gaeProjectID);

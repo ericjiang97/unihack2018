@@ -1,0 +1,8 @@
+include "core"
+include "demo"
+
+rootProject.name = "monash-spring-saml-sp"
+
+rootProject.children.each { p ->
+	p.name = "${rootProject.name}-${p.name}"
+}

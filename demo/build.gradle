@@ -1,0 +1,52 @@
+description = "Monash University spring boot saml2 sp demo for google appengine"
+
+buildscript {
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("com.google.cloud.tools:appengine-gradle-plugin:+")
+		classpath("io.spring.gradle:propdeps-plugin:+")
+	}
+}
+
+configurations {
+	compile.exclude module: "spring-boot-starter-tomcat"
+}
+
+configurations.all {
+	exclude group: 'org.slf4j', module: 'jul-to-slf4j'
+}
+
+apply plugin: 'propdeps'
+
+apply plugin: "war"
+apply plugin: "org.springframework.boot"
+
+
+task prebuild(type: Copy) {
+	from "${project.projectDir}/src/main/resources/gae/${project.environment}/appengine-web.xml"
+	into "${project.projectDir}/src/main/webapp/WEB-INF/"
+}
+prebuild.execute();
+
+apply plugin: "com.google.cloud.tools.appengine"
+
+version = "v1-snapshot"
+
+dependencies {
+
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+	optional("org.springframework.boot:spring-boot-configuration-processor")
+
+    compile project(":monash-spring-saml-sp-core")
+}
+
+appengine {
+
+	deploy {   // deploy configuration
+		stopPreviousVersion = true  // default - stop the current version
+		promote = true              // default - & make this the current version
+		project = "${gaeProjectID}"
+		version = "${this.project.version}"
+	}
+}

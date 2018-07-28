@@ -1,0 +1,28 @@
+logging:
+    level.ROOT: DEBUG
+    level.org.springframework.security.saml: DEBUG
+    level.org.opensaml: DEBUG
+    file: logs/file.log
+
+security:
+    idpMetadata:
+        - classpath:/saml/idp_fake.xml
+    spRequestIssuer: http://localhost:8080
+---
+spring:
+    profiles: dev
+security:
+    idpMetadata:
+        - classpath:/saml/idp_fake.xml
+        - classpath:/saml/idp_monash_qat.xml
+    spRequestIssuer: https://monash-spring-saml-sp-demo-dev.appspot.com
+    googleCredentialPath: classpath:/gae/dev/gcp-monash-dev-sf-samldp-v70-c211fda94630.json
+---
+spring:
+    profiles: uat
+security:
+    idpMetadata:
+        - classpath:/saml/idp_fake.xml
+        - classpath:/saml/idp_monash_qat.xml
+    spRequestIssuer: https://monash-spring-saml-sp-demo-uat.appspot.com
+    googleCredentialPath: classpath:/gae/uat/gcp-monash-qat-sf-samldp-v70-9261099e2a81.json
