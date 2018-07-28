@@ -101,28 +101,34 @@ app.get("/calendar", userLogged, (req, res) => {
   if (!req.session.access_token) return res.redirect("/auth/google");
   var accessToken = req.session.access_token;
   var calendarId = "primary";
-  gcal(accessToken).events.list(calendarId, { maxResults: 1 }, function(
-    err,
-    data
-  ) {
-    if (err) return res.send(500, err);
+  const now = new Date();
+  const nextWeek = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+  gcal(accessToken).events.list(
+    calendarId,
+    {
+      maxResults: 50,
+      timeMin: now.toISOString()
+    },
+    function(err, data) {
+      if (err) return res.send(500, err);
 
-    console.log(data);
-    if (data.nextPageToken) {
-      gcal(accessToken).events.list(
-        calendarId,
-        {
-          maxResults: 10,
-          pageToken: data.nextPageToken
-        },
-        function(err, data) {
-          console.log(data.items);
-        }
-      );
+      console.log(data);
+      if (data.nextPageToken) {
+        gcal(accessToken).events.list(
+          calendarId,
+          {
+            maxResults: 10,
+            pageToken: data.nextPageToken
+          },
+          function(err, data) {
+            console.log(data.items);
+          }
+        );
+      }
+
+      return res.send(data);
     }
-
-    return res.send(data);
-  });
+  );
 });
 
 app.get("/", (req, res) => {
