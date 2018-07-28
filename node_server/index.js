@@ -6,28 +6,13 @@ const Datastore = require("@google-cloud/datastore");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const DatastoreStore = require("@google-cloud/connect-datastore")(session);
+require("./passport");
 
 const datastore = new Datastore({
   projectId: "calad-unihack"
 });
 
 const APPLICATION_PORT = process.env.port || 8080;
-const GOOGLE_CLIENT_ID =
-  "1074396627262-0tcuf75tlk4gld2pjus7rt1en00occ74.apps.googleusercontent.com";
-const GOOGLE_CLIENT_SECRET = "4_GYu7iDWmGB9PV_o46whdg_";
-
-passport.use(
-  new GoogleStrategy(
-    {
-      clientID: GOOGLE_CLIENT_ID,
-      clientSecret: GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://calad-unihack.appspot.com/auth/google/callback"
-    },
-    function(accessToken, refreshToken, profile, cb) {
-      return cb(null, profile);
-    }
-  )
-);
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -42,7 +27,6 @@ app.use(require("cookie-parser")());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(passport.initialize());
-app.use(passport.session());
 app.use(
   session({
     store: new DatastoreStore({
@@ -58,7 +42,7 @@ app.use(
         // GOOGLE_APPLICATION_CREDENTIALS environment variable. Or you can
         // explicitly pass in that path to your key file here:
         keyFilename:
-          "datastore.json" || process.env.GOOGLE_APPLICATION_CREDENTIALS
+          "./datastore.json" || process.env.GOOGLE_APPLICATION_CREDENTIALS
       })
     }),
     secret: "my-secret",
@@ -66,6 +50,8 @@ app.use(
     saveUninitialized: true
   })
 );
+app.use(passport.session());
+
 app.get("/api/profile", (req, res) => {
   if (req.isAuthenticated()) {
     res.send(req.user);
