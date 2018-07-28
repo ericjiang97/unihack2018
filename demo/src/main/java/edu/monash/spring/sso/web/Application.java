@@ -16,14 +16,12 @@
 
 package edu.monash.spring.sso.web;
 
-//import edu.monash.spring.session.EnableDatastoreSession;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-//@EnableDatastoreSession
 public class Application extends SpringBootServletInitializer {
 
     @Override
@@ -31,7 +29,7 @@ public class Application extends SpringBootServletInitializer {
         return application.sources(Application.class);
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
 	

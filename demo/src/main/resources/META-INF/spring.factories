@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  edu.monash.spring.configurations.GoogleCloudConfig,\
+  edu.monash.spring.configurations.SessionConfig

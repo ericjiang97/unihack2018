@@ -13,9 +13,7 @@ allprojects {
         ext.environment = 'local'
     }
 
-    ext.springBootVersion = "1.5.10.RELEASE"
-
-    ext.gaeProjectID = "${project.name}-${ext.environment}"
+    ext.springBootVersion = "1.5.12.RELEASE"
 
     // Gradle wrapper
     task wrapper(type: Wrapper) {
@@ -31,6 +29,9 @@ subprojects {
             jcenter()      // Bintray"s repository - a fast Maven Central mirror & more
             mavenCentral()
             maven { url "https://repo.spring.io/plugins-release" }
+            maven { url "http://repository.mulesoft.org/releases/" }
+            maven { url "https://artifacts.alfresco.com/nexus/content/repositories/public/" }
+            maven { url "https://build.shibboleth.net/nexus/content/repositories/releases/" }
         }
     }
 
@@ -38,11 +39,13 @@ subprojects {
         jcenter()      // Bintray"s repository - a fast Maven Central mirror & more
         mavenCentral()
         maven { url "https://repo.spring.io/plugins-release" }
+        maven { url "http://repository.mulesoft.org/releases/" }
+        maven { url "https://artifacts.alfresco.com/nexus/content/repositories/public/" }
+        maven { url "https://build.shibboleth.net/nexus/content/repositories/releases/" }
     }
 
     apply plugin: 'java'
+    apply plugin: 'project-report'
 
     sourceCompatibility = 1.8
 }
-
-println('Project id: ' + ext.gaeProjectID);

@@ -4,25 +4,38 @@ logging:
     level.org.opensaml: DEBUG
     file: logs/file.log
 
-security:
-    idpMetadata:
+saml:
+    issuerRequestUrl: https://${application.host}
+---
+spring:
+    profiles: local
+application:
+    host: localhost
+saml:
+    metadata:
         - classpath:/saml/idp_fake.xml
-    spRequestIssuer: http://localhost:8080
+    issuerRequestUrl: http://localhost:8080
 ---
 spring:
     profiles: dev
-security:
-    idpMetadata:
+application:
+    host: monash-spring-saml-sp-demo-dev.appspot.com
+saml:
+    metadata:
         - classpath:/saml/idp_fake.xml
         - classpath:/saml/idp_monash_qat.xml
-    spRequestIssuer: https://monash-spring-saml-sp-demo-dev.appspot.com
-    googleCredentialPath: classpath:/gae/dev/gcp-monash-dev-sf-samldp-v70-c211fda94630.json
+        - classpath:/saml/idp_qat_dev.xml
+gcp:
+    credentialFile: classpath:/profiles/dev/gcp-monash-dev-sf-samldp-v70-c211fda94630.json
 ---
 spring:
     profiles: uat
-security:
-    idpMetadata:
+application:
+    host: monash-spring-saml-sp-demo-uat.appspot.com
+saml:
+    metadata:
         - classpath:/saml/idp_fake.xml
         - classpath:/saml/idp_monash_qat.xml
-    spRequestIssuer: https://monash-spring-saml-sp-demo-uat.appspot.com
-    googleCredentialPath: classpath:/gae/uat/gcp-monash-qat-sf-samldp-v70-9261099e2a81.json
+        - classpath:/saml/idp_qat_uat.xml
+gcp:
+    credentialFile: classpath:/profiles/uat/gcp-monash-qat-sf-samldp-v70-9261099e2a81.json
