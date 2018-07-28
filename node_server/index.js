@@ -4,6 +4,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const Datastore = require("@google-cloud/datastore");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 const DatastoreStore = require("@google-cloud/connect-datastore")(session);
 
 const datastore = new Datastore({
@@ -66,7 +67,11 @@ app.use(
   })
 );
 app.get("/api/profile", (req, res) => {
-  res.status(200).send(req.user);
+  if (req.isAuthenticated()) {
+    res.send(req.user);
+  } else {
+    res.status(403).send({ error: "Unauthenticated" });
+  }
 });
 app.get("/test", (req, res) => {
   let data = {
