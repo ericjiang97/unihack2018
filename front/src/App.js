@@ -5,18 +5,22 @@ import EventPage from './pages/EventPage';
 import HomePage from './pages/HomePage';
 import SchedulePage from './pages/SchedulePage';
 import Fallback from './pages/Fallback';
+import HeaderBar from './components/HeaderBar'
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Switch>
-          <Route path='/home' component={HomePage} />
-          <Route path='/calendar' component={CalendarPage} />
-          <Route path='/event' component={EventPage} />
-          <Route path='/schedule' component={SchedulePage} />
-          <Route component={Fallback} />
-        </Switch>
+        <div>
+          <HeaderBar/>
+          <Switch>
+            <Route path='/home' component={HomePage} />
+            <Route path='/calendar' component={CalendarPage} />
+            <Route path='/event' component={EventPage} />
+            <Route path='/schedule' component={SchedulePage} />
+            <Route component={Fallback} />
+          </Switch>
+        </div>
       </BrowserRouter>
     );
   }
