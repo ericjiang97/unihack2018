@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AppBar, Toolbar } from '@material-ui/core'
-import logo from '../images/calad-icon-single.png'
+import logo from '../images/reverse.png'
 import Typography from '@material-ui/core/Typography'
 
 class HeaderBar extends Component {
@@ -8,8 +8,9 @@ class HeaderBar extends Component {
     return (
       <AppBar position="sticky">
         <Toolbar>
-          <img src={logo} style={{ height: 80 }} />
-          <Typography variant="title">CALAD</Typography>
+          <a href="/">
+            <img src={logo} style={{ height: 40 }} />
+          </a>
         </Toolbar>
       </AppBar>
     )

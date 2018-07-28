@@ -13,8 +13,8 @@ class Notifications extends React.Component {
       <Snackbar
         autoHideDuration={1000}
         open={open}
-        onClose={dismissNotification}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        onClose={() => dismissNotification()}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >
         <SnackbarContent message={message} />
       </Snackbar>

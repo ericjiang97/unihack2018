@@ -16,13 +16,16 @@ const setFulfilled = payload => ({
   payload,
 })
 
-const setUpdated = payload => ({
+const setUpdated = (eventId, newRating) => ({
   type: types.UPDATE_TYPES,
-  payload,
+  payload: { rating: newRating },
+  eventId: eventId,
 })
 
-export const updateEvent = event => {
-  return dispatch(setUpdated(event))
+export const updateEventPirority = (eventId, newRating) => {
+  return function(dispatch) {
+    dispatch(setUpdated(eventId, newRating))
+  }
 }
 
 export const loadEvents = () => dispatch => {

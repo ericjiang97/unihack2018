@@ -17,10 +17,6 @@ const defaultState = {
  */
 const AccountReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case types.SHOW_ACCOUNT_DRAWER:
-      return { ...state, isDrawerOpen: true }
-    case types.HIDE_ACCOUNT_DRAWER:
-      return { ...state, isDrawerOpen: false }
     case types.FETCH_USER_PENDING:
       return {
         ...state,

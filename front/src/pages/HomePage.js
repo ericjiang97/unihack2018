@@ -1,21 +1,44 @@
 import React, { Component } from 'react'
-import Button from '@material-ui/core/Button'
+import { Button, Typography } from '@material-ui/core'
 
 class HomePage extends Component {
   render() {
     return (
-      <div className="App">
+      <div
+        style={{
+          flex: 1,
+          backgroundImage:
+            "linear-gradient(to top, rgba(46, 49, 65, 0.5), rgba(46, 49, 65, 0.5)),url('https://img.etsystatic.com/il/4e5483/1163107550/il_fullxfull.1163107550_cpzr.jpg?version=0')",
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          color: 'white',
+        }}
+      >
         <header className="App-header">
-          <h1 className="App-title">Calendar</h1>
+          <Typography
+            style={{ color: 'white' }}
+            variant="display1"
+            gutterBottom
+          >
+            Welcome to CalAd
+          </Typography>
         </header>
-        <p className="App-intro">Home Page</p>
-        <Button
-          onClick={() =>
-            (window.location.href = `${window.location.origin}/auth/google`)
-          }
+        <Typography
+          style={{ color: 'white' }}
+          variant="subheading"
+          gutterBottom
         >
-          Login with Google
+          Helping you make the best of events on your calendar
+        </Typography>
+        <Button href="/onboarding/step1" style={{ color: 'white' }}>
+          To Begin Login
         </Button>
+        <Typography style={{ color: 'white' }} variant="caption" gutterBottom>
+          By logging in your are accepting our{' '}
+          <a href="">Terms of Use policy</a>
+        </Typography>
       </div>
     )
   }

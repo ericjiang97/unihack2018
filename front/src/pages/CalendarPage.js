@@ -5,6 +5,7 @@ import EventList from '../components/EventList'
 import { createNotification } from '../ducks/notifications'
 import { loadEvents } from '../ducks/events'
 import EventsModal from '../components/EventModal'
+import { Typography, Divider } from '@material-ui/core'
 
 class CalendarPage extends Component {
   componentDidMount = () => {
@@ -14,13 +15,15 @@ class CalendarPage extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" style={{ marginTop: 5 }}>
         <header className="App-header">
-          <h1 className="App-title">Calendar</h1>
+          <Typography variant="title">Calendar</Typography>
+          <Typography variant="subheading">
+            We have imported your calendar for the next week below
+          </Typography>
         </header>
-
+        <Divider />
         <EventsModal />
-        <p className="App-intro">Calendar Page</p>
         <EventList />
       </div>
     )

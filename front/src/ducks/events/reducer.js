@@ -28,13 +28,13 @@ const reducer = (state = INITIAL_STATE, action) => {
         error: action.error,
       }
     case types.UPDATE_TYPES:
+      const { payload, eventId } = action
+      const { rating } = payload
+      console.log(state, eventId, rating)
+      const event = state.events[eventId]
+      event.priority = rating
       return {
-        state: Object.assign(
-          {},
-          ...state.splice(0, action.payload.id),
-          action.payload,
-          ...state.splice(action.payload.id + 1)
-        ),
+        ...state,
         isFetching: false,
         error: null,
       }

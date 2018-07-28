@@ -15,13 +15,31 @@ class App extends Component {
     return (
       <React.Fragment>
         <BrowserRouter>
-          <div>
+          <div
+            style={{
+              display: 'flex',
+              height: '100vh',
+              flexDirection: 'column',
+            }}
+          >
             <HeaderBar />
             <Switch>
               <Route exact path="/" component={Pages.HomePage} />
               <Route path="/calendar" component={Pages.CalendarPage} />
               <Route path="/event" component={Pages.EventPage} />
               <Route path="/schedule" component={Pages.SchedulePage} />
+              <Route
+                path="/onboarding/step1"
+                component={Pages.OnboardingFirstPage}
+              />
+              <Route
+                path="/onboarding/step2"
+                component={Pages.OnboardingSecondPage}
+              />
+              <Route
+                path="/onboarding/final"
+                component={Pages.OnboardingLoading}
+              />
               <Route component={Pages.Fallback} />
             </Switch>
           </div>
