@@ -38,7 +38,7 @@ passport.use(
             const taskKey = DataStore.key([DS_User_Kind, profile.id]);
             const task = {
               key: taskKey,
-              data: { ...profile }
+              data: Object({}, profile)
             };
             DataStore.save(task)
               .then(() => {
@@ -58,3 +58,9 @@ passport.use(
     }
   )
 );
+
+module.exports = {
+    GOOGLE_CLIENT_SECRET,
+    GOOGLE_CLIENT_ID,
+    PASSPORT_CALLBACK_URI
+};
