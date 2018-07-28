@@ -4,14 +4,15 @@ const passport = require("passport");
 const Datastore = require("@google-cloud/datastore");
 const session = require("express-session");
 const path = require("path");
-const {google} = require('googleapis');
+const { google } = require("googleapis");
 const DatastoreStore = require("@google-cloud/connect-datastore")(session);
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const uuid = require("node-uuid");
 const pt = require("./util/passport");
+const gcal = require("google-calendar");
 const datastore = new Datastore({
-    projectId: "calad-unihack"
+  projectId: "calad-unihack"
 });
 
 const port = process.env.port || 8080;
@@ -63,13 +64,16 @@ passport.deserializeUser(function(user, done) {
 
 app.get(
   "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "https://www.googleapis.com/auth/calendar"] })
+  passport.authenticate("google", {
+    scope: ["profile", "https://www.googleapis.com/auth/calendar"]
+  })
 );
 
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   function(req, res) {
+    req.session.access_token = req.user.accessToken;
     // Successful authentication, redirect home.
     res.redirect("/");
   }
@@ -89,45 +93,36 @@ app.get("/api/profile", (req, res) => {
 });
 
 function userLogged(req, res, next) {
-    if (req.isAuthenticated())
-        return next();
-    res.redirect('/auth/google');
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
 }
 
 app.get("/calendar", userLogged, (req, res) => {
-    let oauth2Client = new google.auth.OAuth2(
-        pt.GOOGLE_CLIENT_ID,
-        pt.GOOGLE_CLIENT_SECRET,
-        "https://calad-unihack.appspot.com/auth/google/callback"
-    );
+  if (!req.session.access_token) return res.redirect("/auth/google");
+  var accessToken = req.session.access_token;
+  var calendarId = "primary";
+  gcal(accessToken).events.list(calendarId, { maxResults: 1 }, function(
+    err,
+    data
+  ) {
+    if (err) return res.send(500, err);
 
-    oauth2Client.credentials = {
-        access_token: req.user.access_token,
-        refresh_token: req.user.refresh_token
-    };
-
-    let calendar = google.calendar('v3');
-    let resp = null;
-    calendar.events.list({
-        auth: oauth2Client,
-        calendarId: 'primary',
-        timeMin: (new Date()).toISOString(),
-        maxResults: 10,
-        singleEvents: true,
-        orderBy: 'startTime'
-    }, function(err, response) {
-        // process result
-        console.log(response);
-        if (response !== null) {
-            resp = response;
-        } else {
-            resp = {};
+    console.log(data);
+    if (data.nextPageToken) {
+      gcal(accessToken).events.list(
+        calendarId,
+        {
+          maxResults: 10,
+          pageToken: data.nextPageToken
+        },
+        function(err, data) {
+          console.log(data.items);
         }
-    });
-    while (resp == null) {
-        console.log("pending...")
+      );
     }
-    res.send(resp);
+
+    return res.send(data);
+  });
 });
 
 app.get("/", (req, res) => {

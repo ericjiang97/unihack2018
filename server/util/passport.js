@@ -42,6 +42,7 @@ passport.use(
             };
             DataStore.save(task)
               .then(() => {
+                profile.accessToken = accessToken;
                 return cb(null, profile);
               })
               .catch(err => {
@@ -49,6 +50,7 @@ passport.use(
                 throw new Error(err);
               });
           } else {
+            profile.accessToken = accessToken;
             return cb(null, profile);
           }
         })
@@ -60,7 +62,7 @@ passport.use(
 );
 
 module.exports = {
-    GOOGLE_CLIENT_SECRET,
-    GOOGLE_CLIENT_ID,
-    PASSPORT_CALLBACK_URI
+  GOOGLE_CLIENT_SECRET,
+  GOOGLE_CLIENT_ID,
+  PASSPORT_CALLBACK_URI
 };
