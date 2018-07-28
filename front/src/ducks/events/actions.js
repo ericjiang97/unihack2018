@@ -31,6 +31,10 @@ export const loadEvents = () => dispatch => {
             start: new Date(event.start.dateTime),
             end: new Date(event.end.dateTime),
             description: event.description,
+            organizer: event.organizer,
+            creator: event.creator,
+            link: event.htmlLink,
+            location: event.location,
           }
         })
       dispatch(setFulfilled(events))
