@@ -1,16 +1,23 @@
 import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import CalendarPage from './pages/CalendarPage';
+import EventPage from './pages/EventPage';
+import HomePage from './pages/HomePage';
+import SchedulePage from './pages/SchedulePage';
+import Fallback from './pages/Fallback';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Calendar</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/home' component={HomePage} />
+          <Route path='/calendar' component={CalendarPage} />
+          <Route path='/event' component={EventPage} />
+          <Route path='/schedule' component={SchedulePage} />
+          <Route component={Fallback} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
