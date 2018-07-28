@@ -25,7 +25,7 @@ class EventList extends React.Component {
         defaultDate={new Date()}
         onSelectEvent={event => {
           console.log(event)
-          createEventModal(event)
+          this.props.createEventModal(event)
         }}
         onSelectSlot={event => {
           console.log(event)

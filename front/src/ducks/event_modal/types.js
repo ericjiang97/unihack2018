@@ -1,2 +1,2 @@
-export const CREATE = 'CREATE'
-export const DISMISS = 'DISMISS'
+export const CREATE = '@@MODAL/EVENTS/CREATE'
+export const DISMISS = '@@MODAL/EVENTS/DISMISS'
