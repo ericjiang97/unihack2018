@@ -1,25 +1,30 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import CalendarPage from './pages/CalendarPage';
-import EventPage from './pages/EventPage';
-import HomePage from './pages/HomePage';
-import SchedulePage from './pages/SchedulePage';
-import Fallback from './pages/Fallback';
+import React, { Component } from 'react'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+import * as Pages from './pages'
+import HeaderBar from './components/HeaderBar'
+import Notifications from './components/Notifications'
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route path='/home' component={HomePage} />
-          <Route path='/calendar' component={CalendarPage} />
-          <Route path='/event' component={EventPage} />
-          <Route path='/schedule' component={SchedulePage} />
-          <Route component={Fallback} />
-        </Switch>
-      </BrowserRouter>
-    );
+      <React.Fragment>
+        <BrowserRouter>
+          <div>
+            <HeaderBar />
+            <Switch>
+              <Route exact path="/" component={Pages.HomePage} />
+              <Route path="/calendar" component={Pages.CalendarPage} />
+              <Route path="/event" component={Pages.EventPage} />
+              <Route path="/schedule" component={Pages.SchedulePage} />
+              <Route component={Pages.Fallback} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+        <Notifications />
+      </React.Fragment>
+    )
   }
 }
 
-export default App;
+export default App
