@@ -4,6 +4,7 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const Datastore = require("@google-cloud/datastore");
 const bodyParser = require("body-parser");
+const DatastoreStore = require("@google-cloud/connect-datastore")(session);
 
 const datastore = new Datastore({
   projectId: "calad-unihack"
@@ -39,16 +40,34 @@ app.use(require("serve-static")(__dirname + "/../../public"));
 app.use(require("cookie-parser")());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(
-  require("express-session")({
-    secret: "keyboard cat",
+  session({
+    store: new DatastoreStore({
+      dataset: Datastore({
+        prefix: "express-sessions",
+
+        // For convenience, @google-cloud/datastore automatically looks for the
+        // GCLOUD_PROJECT environment variable. Or you can explicitly pass in a
+        // project ID here:
+        projectId: "calad-unihack" || process.env.GCLOUD_PROJECT,
+
+        // For convenience, @google-cloud/datastore automatically looks for the
+        // GOOGLE_APPLICATION_CREDENTIALS environment variable. Or you can
+        // explicitly pass in that path to your key file here:
+        keyFilename:
+          "datastore.json" || process.env.GOOGLE_APPLICATION_CREDENTIALS
+      })
+    }),
+    secret: "my-secret",
     resave: true,
     saveUninitialized: true
   })
 );
-app.use(passport.initialize());
-app.use(passport.session());
-
+app.get("/api/profile", (req, res) => {
+  res.status(200).send(req.user);
+});
 app.get("/test", (req, res) => {
   let data = {
     name: "testing"
