@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
     <runtime>java8</runtime>
-    <application>monash-spring-saml-sp-demo-dev</application><!-- unused for Cloud SDK based tooling -->
+    <application>project-calad-unihack</application><!-- unused for Cloud SDK based tooling -->
     <version>1</version><!-- unused for Cloud SDK based tooling -->
     <threadsafe>true</threadsafe>
     <sessions-enabled>true</sessions-enabled>

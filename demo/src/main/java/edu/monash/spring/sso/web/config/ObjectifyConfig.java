@@ -6,7 +6,7 @@ import com.google.cloud.datastore.DatastoreOptions;
 import com.googlecode.objectify.ObjectifyFactory;
 import com.googlecode.objectify.ObjectifyFilter;
 import com.googlecode.objectify.ObjectifyService;
-import edu.monash.spring.sso.web.model.*;
+import edu.monash.spring.sso.web.model.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
@@ -15,15 +15,14 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListeneßr;
-
-
+import javax.servlet.annotation.WebListener;
 
 
 @Configuration
 public class ObjectifyConfig {
     @Autowired
     private GoogleCredentials googleCredentials;
+
     @Bean
     public FilterRegistrationBean objectifyFilterRegistration() {
         final FilterRegistrationBean registration = new FilterRegistrationBean();

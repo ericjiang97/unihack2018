@@ -1,0 +1,31 @@
+plugins {
+    id "com.moowork.node" version "1.2.0"
+}
+
+
+task installNeeded(type: NpmTask) {
+    args = ['install']
+}
+
+task buildFront(type: NpmTask) {
+//    if (project.hasProperty("local")) {
+//        args = ['run', 'build']
+//    } else  {
+//        args = ['run', 'build-deploy']
+//    }
+    args = ['run', 'build']
+}
+
+task prebuild(type: Delete) {
+    delete = "../backend/src/main/resources/app"
+    followSymlinks = true
+}
+
+task postbuild(type: Copy) {
+    from "build"
+    into "../backend/src/main/resources/app"
+}
+
+//buildFront.dependsOn(installNeeded)
+buildFront.dependsOn(prebuild)
+buildFront.finalizedBy(postbuild)

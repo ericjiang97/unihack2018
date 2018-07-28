@@ -46,7 +46,7 @@ appengine {
 	deploy {   // deploy configuration
 		stopPreviousVersion = true  // default - stop the current version
 		promote = true              // default - & make this the current version
-		project = "${this.project.name}-${this.project.environment}"
+		project = "${this.project.name}"
 		version = "${this.project.version}"
 	}
 }

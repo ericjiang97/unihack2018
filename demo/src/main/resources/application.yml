@@ -26,7 +26,7 @@ saml:
         - classpath:/saml/idp_monash_qat.xml
         - classpath:/saml/idp_qat_dev.xml
 gcp:
-    credentialFile: classpath:/profiles/dev/gcp-monash-dev-sf-samldp-v70-c211fda94630.json
+    credentialFile: classpath:/profiles/dev/calad.json
 ---
 spring:
     profiles: uat

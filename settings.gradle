@@ -2,7 +2,7 @@ include "core"
 include "demo"
 include "front"
 
-rootProject.name = "monash-spring-boot-sso-demo"
+rootProject.name = "project-calad-unihack"
 
 rootProject.children.each { p ->
 
@@ -11,7 +11,7 @@ rootProject.children.each { p ->
 			p.name = "monash-spring-boot-sso"
 			break
 		case "demo":
-			p.name = "monash-spring-saml-sp-demo"
+			p.name = "calad-unihack"
 			break
 		case "front":
 			p.name = "monash-spring-saml-sp-demo-front"
