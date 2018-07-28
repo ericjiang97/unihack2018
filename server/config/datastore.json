@@ -1,0 +1,14 @@
+{
+  "type": "service_account",
+  "project_id": "calad-unihack",
+  "private_key_id": "52a3c7f0b2bb3b7188ab3643f34e176f28b72cd3",
+  "private_key":
+    "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCPz0bRVj/Cni+5\n2VjmMWAH6N3SG2r3c7JGIOWjkOCYEpamXRRXpGhUVmSNoVCwe2iVhgCBdFAHhToh\nqE4W/qNSpwwDD13NejzeJ7ep6TKQk0lniPcvqC6vsO3/4L2opoKP5JDktu4Iz3s0\nZMtF9xlyAVRZ/VNGq6qYO16poPNhIbfcvdCu5HB2+GUUpOLUVjwxuMik2sFKl5R5\nG8C4+xchKDuk+0K1N4twDp9kD20AHLODrFTQxPdqOm6kseZZUjN2h0HbArC9U/g1\n0HqKcrUVRCFpii61NOeHKkZbPlo1ve/5+byR8hRwpVcZCqn1C0Mzc0W6NzDL6DRE\ngqxUEkmBAgMBAAECggEADCu8MBpPEh8GJgH1iqHSIUk9gLsuTdv+Uf4VwUaRI32r\nP1AwWQyCgeS/5NaquAzxuHnbUBlybniBh3ixhzOsyeF2XEnwI+Q9A4Yz/o7MZzz3\n4OnQFbnznY3pTpcMJhpVgW0UMC8lLRy2LiR7qaO0hRgEtgsBAcGkkfawV8XV4znx\nUN09wVl4Dm1CBI64MtqzXUxdg5cVsCieKw5yWV8Nn+m6WrsWK1Qms+yLAImRgjyD\nrPG+BTATdb1iaG5J099GrCP5XVchdbn0tCvpaBMQBUaShvgJViauwhBVtW8H+w/g\nNRNK3OYvbUdSX6HQYLP9D+4Okwk+v1/SfoV8hTsQYQKBgQDGpdlZuvTI9RFyDNIM\nTkobZBDK8a0+tl+yADLDxWGTe6GA8BQJSMfkhFzpYFuL1PGf1HiUOdRnV4yNa1Y2\n73APcfo1gZTlM08RGUWQ1wwU6W8D8SXO5o8bbYOkXmjayBA0u4HAbpRNgbmu73Ai\nW0VPK0Xd5l+uQd+gi/l+3yEXuQKBgQC5VFBS7K3vAbbtaHwZuORa9YAq7yD9Oauy\nNX6+PCkC1DIvBQ30ApB3ifL6V/St7BiYhWOpvvmUTf7x00zD4ERJqUWxJ7hMgOJh\nw12J5/8GnscduOQeKnMTrPN3+VaTJ85lmvDSeWW/NDYNVkAKuhaNFiJCRqNjN6So\nMqnagX4UCQKBgDEtHYF5JuAYyxjQ0674MqBVRVL4QUslGsuWAPs2AdHg6TpiNJOX\n0ORhYB7mG8OiE67dinwnVM3AfqsDx3QSEkvAi5BzY8jZytkQyIfytKr4nuL678Eo\nkoTXt58ZQBvpKxni0VwyA8SsOKt12uyma6INtF4aidU5uYKlJD6kPi0BAoGBAJE9\nIjXahfTowxMK7za5Tzx5aRg8jv3kVEo04j7zprAw26M9stGnsM/9rA3FIFusyxm8\nb353y+ANv96EWYSoHNwdbCCJoEVUPBWhpYyN466sgB8q5ps9aTHiOGutW8u3Rmka\nI+DOgo51vGZ3UXkWnNW0ouSNtz3qPYATNEmpccUBAoGBAKU4tjjdRAnsb13EH5Qc\ncDAP/GrWBVrvUTbK6sTAwxpF5SzmkzMNIiKqwOCoCPqm4w79aa8knvLvg64FcjKq\nxO9HLrqksq/WmJ+ejkzDcm0CVaUWiyv6vjKIH51SB1R4fcm8QAmYwC+DK7YIwwDi\nMGEJYcVO4qiZSKJD4UdmRS3b\n-----END PRIVATE KEY-----\n",
+  "client_email": "unihack@calad-unihack.iam.gserviceaccount.com",
+  "client_id": "100456257237532866652",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url":
+    "https://www.googleapis.com/robot/v1/metadata/x509/unihack%40calad-unihack.iam.gserviceaccount.com"
+}
