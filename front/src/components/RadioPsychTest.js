@@ -21,7 +21,7 @@ class RadioPsychTest extends Component {
     render() {
         return (
             <FormControl component="fieldset" style={{flex: true, flexDirection: "row"}}>
-                <FormLabel component="legend" classes={{root: 'title-label'}}>{this.props.name}</FormLabel>
+                <FormLabel component="legend" classes={{root: 'title-label'}}><i>{this.props.name}</i></FormLabel>
                 <RadioGroup aria-label={this.props.name} onChange={this.onChange.bind(this)} value={this.props.value} style={{flex: true, flexDirection: "row"}}>
                     <FormControlLabel value={"sd"} control={<Radio color={"primary"}/>} label={"Strongly Disagree"} classes={{label: 'radio-label'}}/>
                     <FormControlLabel value={"d"} control={<Radio color={"primary"}/>} label={"Disagree"} classes={{label: 'radio-label'}}/>

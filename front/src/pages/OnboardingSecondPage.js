@@ -1,14 +1,8 @@
 import React, { Component } from 'react'
 import {
-  Avatar,
   Button,
   Typography,
   FormControl,
-  Input,
-  InputLabel,
-  MenuItem,
-  Select,
-  FormHelperText,
   Divider,
 } from '@material-ui/core'
 import { connect } from 'react-redux'
@@ -75,7 +69,7 @@ class OnboardingFirstPage extends Component {
         </Fade>
         <Divider />
         <Fade in={true} timeout={1750}>
-            <FormControl>
+            <FormControl required={Object.values(this.state).filter(i => i != null).length === Object.values(this.state).length}>
                 <RadioPsychTest name={"I'm most effective when I get a break between consecutive meetings, to recharge and prepare for the next meeting"}
                                 value={this.state.positive_consec_meetings}
                                 onChange={(val) => this.setState({positive_consec_meetings: val})}/>
@@ -204,5 +198,5 @@ class OnboardingFirstPage extends Component {
 
 const mapStateToProps = state => ({
   account: state.account,
-})
+});
 export default connect(mapStateToProps)(OnboardingFirstPage)
