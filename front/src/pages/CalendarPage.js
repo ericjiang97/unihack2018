@@ -19,8 +19,14 @@ class CalendarPage extends Component {
     const { checked } = event.target
     if (checked) {
       this.props.updateEventList()
+      this.setState({
+        toggle: true,
+      })
     } else {
       this.props.loadEvents()
+      this.setState({
+        toggle: false,
+      })
     }
   }
 
@@ -33,13 +39,14 @@ class CalendarPage extends Component {
             We have imported your calendar for the next week below
           </Typography>
           <Switch
+            value={this.state.toggle}
             checked={this.state.checkedA}
             onChange={this.handleChange('checkedA')}
           />
         </header>
         <Divider />
         <EventsModal />
-        <EventList />
+        <EventList showChanged={this.state.toggle} />
       </div>
     )
   }
