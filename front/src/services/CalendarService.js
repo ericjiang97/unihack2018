@@ -3305,14 +3305,16 @@ const MOCK_USER_OBJECT = {
 
 export default class CalendarService {
   static getEvents() {
-    if (process.env.NODE_ENV === 'production') {
-      const requestURI = `${window.location.origin}/api/calendar`
-      return NetworkService.get(requestURI, {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      })
-    }
-
     return Promise.resolve(MOCK_USER_OBJECT)
+  }
+
+  static updateEvents() {
+    const FILTERED_OBJECT = MOCK_USER_OBJECT.items.filter(item => {
+      return (
+        item.description !==
+        'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.'
+      )
+    })
+    return Promise.resolve(FILTERED_OBJECT)
   }
 }
