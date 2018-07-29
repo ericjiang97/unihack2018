@@ -7,6 +7,7 @@ body {
 .radio-label {
   color: white !important;
   flex: 1;
+  font-size: x-small !important;
 }
 
 .title-label {
