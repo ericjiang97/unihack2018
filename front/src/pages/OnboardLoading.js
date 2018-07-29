@@ -38,7 +38,8 @@ class OnboardingFirstPage extends Component {
           flex: 1,
           backgroundImage:
             "linear-gradient(to top, rgba(46, 49, 65, 0.5), rgba(46, 49, 65, 0.5)),url('https://img.etsystatic.com/il/4e5483/1163107550/il_fullxfull.1163107550_cpzr.jpg?version=0')",
-
+          backgroundSize: 'cover',
+          backgroundRepeat: 'none',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',

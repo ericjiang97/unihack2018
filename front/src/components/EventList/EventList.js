@@ -11,7 +11,7 @@ class EventList extends React.Component {
     events: [],
   }
   render = () => {
-    const { events, isFetching, error } = this.props
+    const { events, isFetching, error, showChanged } = this.props
 
     if (isFetching) return <h1>FETCHING</h1>
     if (error !== null) return <h1>ERROR: {error.toString()}</h1>
@@ -29,6 +29,38 @@ class EventList extends React.Component {
         }}
         onSelectSlot={event => {
           console.log(event)
+        }}
+        eventPropGetter={(event, start, end, isSelected) => {
+          console.log(event)
+          if (showChanged) {
+            let newStyle = {
+              backgroundColor: '#006CAB',
+              color: 'white',
+              borderRadius: '0px',
+              border: 'none',
+            }
+
+            if (event.isLate) {
+              newStyle.backgroundColor = 'red'
+            }
+
+            return {
+              className: '',
+              style: newStyle,
+            }
+          } else {
+            let newStyle = {
+              backgroundColor: '#03a9f4',
+              color: 'white ',
+              borderRadius: '0px',
+              border: 'none',
+            }
+
+            return {
+              className: '',
+              style: newStyle,
+            }
+          }
         }}
       />
     )

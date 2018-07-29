@@ -3427,6 +3427,7 @@ export default class CalendarService {
             let i = { ...item }
             i.start = { dateTime: '2018-08-02T14:30:00+10:00' }
             i.summary = item.summary + ' (LATE)'
+            i.isLate = true
             return i
           }
           return item
