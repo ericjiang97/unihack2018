@@ -7,6 +7,7 @@ const loadingMessages = [
   'Providing more information to our systems',
   'Knocking a few trees down',
   'Working on something awesome',
+  'Ready to go!',
 ]
 class OnboardingFirstPage extends Component {
   state = {
@@ -45,7 +46,7 @@ class OnboardingFirstPage extends Component {
           padding: 10,
         }}
       >
-        <CircularProgress size={100} />
+        {!this.state.finishedLoading && <CircularProgress size={100} />}
         <Fade in={true} timeout={1500}>
           <header className="App-header">
             <Typography
