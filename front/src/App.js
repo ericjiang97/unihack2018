@@ -44,7 +44,6 @@ class App extends Component {
             </Switch>
           </div>
         </BrowserRouter>
-        <Notifications />
       </React.Fragment>
     )
   }
