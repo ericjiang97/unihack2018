@@ -1802,9 +1802,39 @@ const MOCK_USER_OBJECT = {
         'https://www.google.com/calendar/event?eid=NWc5NGxsZHFna29yMjVwYjc5MjFma3JpanQgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
       created: '2018-07-20T06:16:05.000Z',
       updated: '2018-07-20T06:16:05.130Z',
-      summary: 'Leave',
+      summary: 'Team Training',
       description:
         'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
+      method: 1,
+      creator: {
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
+      },
+      organizer: {
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
+      },
+      start: { dateTime: '2018-07-31T11:00:00+10:00' },
+      end: { dateTime: '2018-07-31T14:50:00+10:00' },
+      visibility: 'public',
+      iCalUID: '5g94lldqgkor25pb7921fkrijt@google.com',
+      sequence: 0,
+      extendedProperties: { private: { everyoneDeclinedDismissed: '-1' } },
+      reminders: { useDefault: false },
+    },
+    {
+      kind: 'calendar#event',
+      etag: '"3064134730217000"',
+      id: '5g94lldqgkor25pb7921fkrijt',
+      status: 'confirmed',
+      htmlLink:
+        'https://www.google.com/calendar/event?eid=NWc5NGxsZHFna29yMjVwYjc5MjFma3JpanQgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
+      created: '2018-07-20T06:16:05.000Z',
+      updated: '2018-07-20T06:16:05.130Z',
+      summary: 'Meeting with CIO',
+      description: 'CIO Briefing',
       creator: {
         email: 'eric.jiang@monash.edu',
         displayName: 'Eric Jiang',
@@ -1832,7 +1862,37 @@ const MOCK_USER_OBJECT = {
         'https://www.google.com/calendar/event?eid=NHEzZ2ZjcmxwcHNwZmloc2gwZW84cWI3dWwgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
       created: '2018-07-20T06:16:20.000Z',
       updated: '2018-07-20T06:16:20.673Z',
-      summary: 'Leave',
+      summary: 'DCIO meeting',
+      description:
+        'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
+      creator: {
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
+      },
+      organizer: {
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
+      },
+      start: { dateTime: '2018-08-02T13:00:00+10:00' },
+      end: { dateTime: '2018-08-02T14:30:00+10:00' },
+      visibility: 'public',
+      iCalUID: '4q3gfcrlppspfihsh0eo8qb7ul@google.com',
+      sequence: 0,
+      extendedProperties: { private: { everyoneDeclinedDismissed: '-1' } },
+      reminders: { useDefault: false },
+    },
+    {
+      kind: 'calendar#event',
+      etag: '"3064134761308000"',
+      id: '4q3gfcrlppspfihsh0eo8qb7ul',
+      status: 'confirmed',
+      htmlLink:
+        'https://www.google.com/calendar/event?eid=NHEzZ2ZjcmxwcHNwZmloc2gwZW84cWI3dWwgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
+      created: '2018-07-20T06:16:20.000Z',
+      updated: '2018-07-20T06:16:20.673Z',
+      summary: 'Project Steering Commitee',
       description:
         'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
       creator: {
@@ -1846,7 +1906,7 @@ const MOCK_USER_OBJECT = {
         self: true,
       },
       start: { dateTime: '2018-08-02T14:00:00+10:00' },
-      end: { dateTime: '2018-08-02T16:50:00+10:00' },
+      end: { dateTime: '2018-08-02T16:00:00+10:00' },
       visibility: 'public',
       iCalUID: '4q3gfcrlppspfihsh0eo8qb7ul@google.com',
       sequence: 0,
@@ -2044,6 +2104,7 @@ const MOCK_USER_OBJECT = {
       summary: 'Out of office',
       description:
         'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
+      method: 1,
       creator: {
         email: 'eric.jiang@monash.edu',
         displayName: 'Eric Jiang',
@@ -2074,6 +2135,7 @@ const MOCK_USER_OBJECT = {
       summary: 'Out of office',
       description:
         'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
+      method: 1,
       creator: {
         email: 'eric.jiang@monash.edu',
         displayName: 'Eric Jiang',
@@ -2269,6 +2331,40 @@ const MOCK_USER_OBJECT = {
     },
     {
       kind: 'calendar#event',
+      etag: '"3064604502378000"',
+      id: '5nuoordchibae84qtqe033lide',
+      status: 'confirmed',
+      htmlLink:
+        'https://www.google.com/calendar/event?eid=NW51b29yZGNoaWJhZTg0cXRxZTAzM2xpZGUgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
+      created: '2018-07-22T23:24:20.000Z',
+      updated: '2018-07-22T23:30:51.189Z',
+      summary: 'FIT3031 - Assignment 1 Specs',
+      creator: {
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
+      },
+      organizer: {
+        email:
+          'monash.edu_ppfke1uu83nc33qtbu6ctu7f4o@group.calendar.google.com',
+        displayName: 'University Calendar',
+      },
+      start: { dateTime: '2018-07-30T09:30:00+10:00' },
+      end: { dateTime: '2018-07-30T10:20:00+10:00' },
+      iCalUID: '5nuoordchibae84qtqe033lide@google.com',
+      sequence: 0,
+      attendees: [
+        {
+          email: 'eric.jiang@monash.edu',
+          displayName: 'Eric Jiang',
+          self: true,
+          responseStatus: 'accepted',
+        },
+      ],
+      reminders: { useDefault: true },
+    },
+    {
+      kind: 'calendar#event',
       etag: '"3064605906567000"',
       id: '03usm3qjqmr089l338l48n5r8c',
       status: 'confirmed',
@@ -2276,9 +2372,38 @@ const MOCK_USER_OBJECT = {
         'https://www.google.com/calendar/event?eid=MDN1c20zcWpxbXIwODlsMzM4bDQ4bjVyOGMgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
       created: '2018-07-22T23:42:33.000Z',
       updated: '2018-07-22T23:42:33.306Z',
-      summary: 'Out of office',
+      summary: 'Training',
       description:
         'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
+      method: 1,
+      creator: {
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
+      },
+      organizer: {
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
+      },
+      start: { dateTime: '2018-07-30T14:00:00+10:00' },
+      end: { dateTime: '2018-07-30T16:35:00+10:00' },
+      visibility: 'public',
+      iCalUID: '03usm3qjqmr089l338l48n5r8c@google.com',
+      sequence: 0,
+      extendedProperties: { private: { everyoneDeclinedDismissed: '-1' } },
+      reminders: { useDefault: false },
+    },
+    {
+      kind: 'calendar#event',
+      etag: '"3064605906567000"',
+      id: '03usm3qjqmr089l338l48n5r8c',
+      status: 'confirmed',
+      htmlLink:
+        'https://www.google.com/calendar/event?eid=MDN1c20zcWpxbXIwODlsMzM4bDQ4bjVyOGMgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
+      created: '2018-07-22T23:42:33.000Z',
+      updated: '2018-07-22T23:42:33.306Z',
+      summary: 'Meeting with Dean of Education and Business',
       creator: {
         email: 'eric.jiang@monash.edu',
         displayName: 'Eric Jiang',
@@ -2401,6 +2526,7 @@ const MOCK_USER_OBJECT = {
       summary: 'Out of office',
       description:
         'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
+      method: 1,
       creator: {
         email: 'eric.jiang@monash.edu',
         displayName: 'Eric Jiang',
@@ -3067,6 +3193,7 @@ const MOCK_USER_OBJECT = {
       summary: 'Out of office',
       description:
         'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.',
+      method: 1,
       creator: {
         email: 'eric.jiang@monash.edu',
         displayName: 'Eric Jiang',
@@ -3087,52 +3214,33 @@ const MOCK_USER_OBJECT = {
     },
     {
       kind: 'calendar#event',
-      etag: '"3064944562268000"',
-      id: '3kc6qfhrnds87kuo424jfv7hn0_20180801T040000Z',
+      etag: '"3064943778139000"',
+      id: '5cle2mgiaa4hu5tikjhc9b6ri2',
       status: 'confirmed',
       htmlLink:
-        'https://www.google.com/calendar/event?eid=M2tjNnFmaHJuZHM4N2t1bzQyNGpmdjdobjBfMjAxODA4MDFUMDQwMDAwWiBlcmljLmppYW5nQG1vbmFzaC5lZHU',
-      created: '2018-07-09T23:21:06.000Z',
-      updated: '2018-07-24T22:44:41.134Z',
-      summary: '[WORKSHOP] FIT2002',
-      location: 'CL_19Anc/G81',
+        'https://www.google.com/calendar/event?eid=NWNsZTJtZ2lhYTRodTV0aWtqaGM5YjZyaTIgZXJpYy5qaWFuZ0Btb25hc2guZWR1',
+      created: '2018-07-24T22:38:09.000Z',
+      updated: '2018-07-24T22:38:09.088Z',
+      summary: 'Vendor Meeting with SalesForce',
       creator: {
         email: 'eric.jiang@monash.edu',
         displayName: 'Eric Jiang',
         self: true,
       },
       organizer: {
-        email:
-          'monash.edu_ppfke1uu83nc33qtbu6ctu7f4o@group.calendar.google.com',
-        displayName: 'University Calendar',
+        email: 'eric.jiang@monash.edu',
+        displayName: 'Eric Jiang',
+        self: true,
       },
-      start: {
-        dateTime: '2018-08-01T14:00:00+10:00',
-        timeZone: 'Australia/Sydney',
-      },
-      end: {
-        dateTime: '2018-08-01T14:50:00+10:00',
-        timeZone: 'Australia/Sydney',
-      },
-      recurringEventId: '3kc6qfhrnds87kuo424jfv7hn0',
-      originalStartTime: {
-        dateTime: '2018-08-01T14:00:00+10:00',
-        timeZone: 'Australia/Sydney',
-      },
-      iCalUID: '3kc6qfhrnds87kuo424jfv7hn0@google.com',
-      sequence: 1,
-      attendees: [
-        {
-          email: 'eric.jiang@monash.edu',
-          displayName: 'Eric Jiang',
-          self: true,
-          responseStatus: 'accepted',
-          comment: 'Leave for Study',
-        },
-      ],
+      start: { dateTime: '2018-08-01T14:30:00+10:00' },
+      end: { dateTime: '2018-08-01T16:30:00+10:00' },
+      visibility: 'public',
+      iCalUID: '5cle2mgiaa4hu5tikjhc9b6ri2@google.com',
+      sequence: 0,
       extendedProperties: { private: { everyoneDeclinedDismissed: '-1' } },
-      reminders: { useDefault: true },
+      reminders: { useDefault: false },
     },
+
     {
       kind: 'calendar#event',
       etag: '"3064352052726000"',
@@ -3309,12 +3417,22 @@ export default class CalendarService {
   }
 
   static updateEvents() {
-    const FILTERED_OBJECT = MOCK_USER_OBJECT.items.filter(item => {
-      return (
-        item.description !==
-        'New and existing meetings during this time will be automatically declined. Use Google Calendar on web to edit this Out of office object.'
-      )
-    })
+    const FILTERED_OBJECT = MOCK_USER_OBJECT.items
+      .filter(item => {
+        return item.method !== 1
+      })
+      .map((item, key) => {
+        if (item.start) {
+          if (item.start.dateTime === '2018-08-02T14:00:00+10:00') {
+            let i = { ...item }
+            i.start = { dateTime: '2018-08-02T14:30:00+10:00' }
+            i.summary = item.summary + ' (LATE)'
+            return i
+          }
+          return item
+        }
+        return item
+      })
     return Promise.resolve(FILTERED_OBJECT)
   }
 }
